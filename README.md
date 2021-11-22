@@ -1,4 +1,5 @@
 # palenum
+https://img.shields.io/github/languages/code-size/the29a/palenum
 Pale Privilege Escalation Emumeration script    
 
 palenum - light shell script, able to file output.
