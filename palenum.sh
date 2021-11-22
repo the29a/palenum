@@ -11,13 +11,17 @@ else
 fi
 
 # Who i am
-CURRENTUSERID="$(id)"
-echo "\nWho i am:"
-echo "${CURRENTUSERID}"
+GETCURRENTUSERNAME="$(whoami)"
+echo "\nCurrent User:" 
+echo "${GETCURRENTUSERNAME}"
 
-LOGGEDUSERS="$(w)"
+GETCURRENTUSERID="$(id)"
+echo "\nUser ID"
+echo "${GETCURRENTUSERID}"
+
+GETLOGGEDUSERS="$(w)"
 echo "\nAnybody here?"
-echo "${LOGGEDUSERS}"
+echo "${GETLOGGEDUSERS}"
 
 # System
 ##  Kernel version
@@ -71,22 +75,30 @@ echo "\nShow fstab"
 echo "${SHOWFSTAB}"
 
 # Enumerating users and env info
-echo "\nCurrent User:" 
-whoami
-echo "\nCurrent User ID:"
-"id" 
+
+GETPASSWD="$(cat /etc/passwd )"
 echo "\nAll users:"
-cat /etc/passwd 
+echo "${GETPASSWD}"
+
+GETSUPERUSERS="$(grep -v -E '^#' /etc/passwd | awk -F: '$3 == 0{print $1}')"
 echo "\nSuper Users Found:"
-grep -v -E '^#' /etc/passwd | awk -F: '$3 == 0{print $1}' 
+echo "${GETSUPERUSERS}"
+
+GETENVIROMENT="$(env 2>/dev/null | grep -v 'LS_COLORS')"
 echo "\nEnvironment:"
-env 2>/dev/null | grep -v 'LS_COLORS' 
+echo "${GETENVIROMENT}"
+
+GETSUDOERS="$(cat /etc/sudoers 2>/dev/null | grep -v '#' 2>/dev/null)"
 echo "\nSudoers (privileged):"
-cat /etc/sudoers 2>/dev/null | grep -v '#' 2>/dev/null
+echo "${GETSUDOERS}"
+
+GETACTIVESCREEN="$(screen -ls 2>/dev/null)"
 echo "\nList out any screens running for the current user:" 
-screen -ls 2>/dev/null  
+echo "${GETACTIVESCREEN}"
+
+GETLOGGEDUSERSACTIVITY="$(who -a 2>/dev/null)"
 echo "\nLogged in User Activity:" 
-who -a 2>/dev/null
+echo "${GETLOGGEDUSERSACTIVITY}"
 
 # Search ssh keys
 echo "\nSSH keys"
