@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#check root
+# Check root
 is_user_root () { [ "$(id -u)" -eq 0 ]; }
 
 if is_user_root; then
@@ -11,42 +11,64 @@ else
 fi
 
 # Who i am
+CURRENTUSERID="$(id)"
 echo "\nWho i am:"
-id
+echo "${CURRENTUSERID}"
+
+LOGGEDUSERS="$(w)"
 echo "\nAnybody here?"
-w
+echo "${LOGGEDUSERS}"
 
 # System
 ##  Kernel version
+GETKERNELVERSION="$(cat /proc/version)"
 echo "\nKernel version:"
-cat /proc/version
+echo "${GETKERNELVERSION}"
+
 ## Check distro
-echo "\nCheck distro:"
-cat /etc/issue
-cat /etc/*-release
-echo "Hostname is:" ; hostname
+CHECKDISTRO="$(cat /etc/issue)"
+echo "\nCheck Disto"
+echo "${CHECKDISTRO}"
+
+CHECKRELEASE="$(cat /etc/*-release)"
+echo "\nCheck Release:"
+echo "#${CHECKRELEASE}"
+
+GETHOSTNAME="$(hostname)"
+echo "Hostname is:"
+echo "${GETHOSTNAME}"
 
 # Crontab
+CHECKCRONTAB="$(crontab -l)"
 echo "\nCheck crontab:"
-crontab -l
+echo "${CHECKCRONTAB}"
+
+CHECKSCHEDULED="$(ls -la /etc/cron* 2>/dev/null)"
 echo "\nScheduled cron jobs"
-ls -la /etc/cron* 2>/dev/null
-echo "\nWritable cron dirs"
+echo "${CHECKSCHEDULED}"
 
 
 # Network
+SHOWIP="$(ip -br a show)"
 echo "\nIp:"
-ip -br a show
+echo "${SHOWIP}"
+
+SHOWROUTES="$(route)"
 echo "\nShow routes:"
-route
+echo "${SHOWROUTES}"
+
+SHOWNETSTAT="$(netstat -antup)"
 echo "\nNetstat:"
-netstat -antup
+echo "${SHOWNETSTAT}"
 
 # File system
+SHOWMOUNTS="$(mount)"
 echo "\nShow Mounts:"
-mount
+echo "${SHOWMOUNTS}"
+
+SHOWFSTAB="$(cat /etc/fstab 2>/dev/null)"
 echo "\nShow fstab"
-cat /etc/fstab 2>/dev/null
+echo "${SHOWFSTAB}"
 
 # Enumerating users and env info
 echo "\nCurrent User:" 
