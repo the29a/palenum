@@ -1,6 +1,15 @@
 #!/bin/sh
-# Check the https://github.com/swisskyrepo/PayloadsAllTheThings/
 
+#check root
+
+is_user_root () { [ "$(id -u)" -eq 0 ]; }
+
+if is_user_root; then
+    echo "\nYou are root. Continue?"
+    sleep 5
+else
+    echo "\nYou are just an ordinary user." >&2
+fi
 
 # Who i am
 echo "\nWho i am:"
@@ -9,19 +18,22 @@ id
 # Who online?
 echo "\nAnybody here?"
 w
-# Kernel version
+
+# System
+##  Kernel version
 echo "\nKernel version:"
 uname -a
-# Check distro
+## Check distro
 echo "\nCheck distro:"
 cat /etc/issue
 cat /etc/*-release
 
-# Crontab
+## Crontab
 echo "\nCheck crontab:"
 crontab -l
 
 # Network
+echo "Hostname is:" ; hostname
 echo "\nIp:"
 ip -br a show
 
@@ -34,6 +46,10 @@ find / -perm -u=s -type f 2>/dev/null
 echo "\nGet GUID:"
 find / -perm -g=s -type f 2>/dev/null 
 
+# Search ssh keys
+echo "\nSSH keys"
+find / -name authorized_keys 2> /dev/null
+find / -name id_rsa 2> /dev/null
 
-# Looking for passwords, make a wall of text, may me add later
+# Looking for passwords, make a shitfull wall of text, may me add later
 # grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null
