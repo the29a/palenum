@@ -15,7 +15,7 @@ Get:
 - ssh keys
 
 ## To-Do:    
-[ ] - Make everything ok 
+- [ ] Make everything ok 
 
 ## Reference links:    
 [LinEnum](https://github.com/rebootuser/LinEnum)    
