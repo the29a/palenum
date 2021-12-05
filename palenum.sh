@@ -183,6 +183,7 @@ echo "${NETRC}"
 
 ## https://gtfobins.github.io/
 ## https://github.com/sleventyeleven/linuxprivchecker/
+
 #Get sticky bit
 GETSTICKYBITS="$(find / -perm -1000 -type d 2>/dev/null)"
 echo "\nGet Sticky:"
