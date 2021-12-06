@@ -31,7 +31,7 @@ echo "${GETKERNELVERSION}"
 
 ## Check distro
 CHECKDISTRO="$(cat /etc/issue)"
-echo "\nCheck Disto"
+echo "\nCheck Distro:"
 echo "${CHECKDISTRO}"
 
 CHECKRELEASE="$(cat /etc/*-release)"
