@@ -13,6 +13,7 @@ Get:
 - sticky bit, GUID and SUID
 - enumerating users and env info
 - ssh keys
+- secrets in env
 
 ## To-Do:    
 - [ ] Make everything ok 
