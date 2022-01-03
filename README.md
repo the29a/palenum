@@ -22,3 +22,4 @@ Get:
 [LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)    
 [linuxprivchecker](https://github.com/sleventyeleven/linuxprivchecker/)        
 [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md)    
+[awesome-list-of-secrets-in-environment-variables](https://github.com/Puliczek/awesome-list-of-secrets-in-environment-variables)

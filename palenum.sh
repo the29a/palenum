@@ -230,5 +230,106 @@ echo "${GETSHADOW}"
 # grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null
 
 
+# secrets in envs
+echo "\nGet secrets from env"
+## aws
+printenv | grep "AWS_ACCESS_KEY_ID"
+printenv | grep "AWS_SECRET_ACCESS_KEY"
+printenv | grep "AMAZON_AWS_ACCESS_KEY_ID"
+printenv | grep "AMAZON_AWS_SECRET_ACCESS_KEY"
+
+## azure
+printenv | grep "AZURE_CLIENT_ID"
+printenv | grep "AZURE_CLIENT_SECRET"
+printenv | grep "AZURE_USERNAME"
+printenv | grep "AZURE_PASSWORD"
+printenv | grep "MSI_ENDPOINT"
+printenv | grep "MSI_SECRET"
+
+## binance
+printenv | grep "binance_api"
+printenv | grep "binance_secret"
+
+## Bittrex
+printenv | grep "BITTREX_API_KEY"
+printenv | grep "BITTREX_API_SECRET"
+
+## CircleCI
+printenv | grep "CIRCLE_TOKEN"
+
+## Digitalocean
+printenv | grep "DIGITALOCEAN_ACCESS_TOKEN"
+
+## Dockerhub
+printenv | grep "DOCKERHUB_PASSWORD"
+
+## Fastlane products
+printenv | grep "ITC_PASSWORD" 
+
+## Facebook
+printenv | grep "FACEBOOK_APP_ID"
+printenv | grep "FACEBOOK_APP_SECRET"
+printenv | grep "FACEBOOK_ACCESS_TOKEN"
+
+## github
+printenv | grep "GH_TOKEN"
+printenv | grep "GITHUB_TOKEN" 
+printenv | grep "GH_ENTERPRISE_TOKEN"
+printenv | grep "GITHUB_ENTERPRISE_TOKEN" 
+
+## Google Cloud
+printenv | grep "GOOGLE_APPLICATION_CREDENTIALS"
+printenv | grep "GOOGLE_API_KEY"
+
+## gitlab
+printenv | grep "CI_DEPLOY_USER"
+printenv | grep "CI_DEPLOY_PASSWORD"
+printenv | grep "GITLAB_USER_LOGIN"
+printenv | grep "CI_JOB_JWT"
+printenv | grep "CI_JOB_JWT_V2"
+printenv | grep "CI_JOB_TOKEN"
+
+## mailgun
+printenv | grep "MAILGUN_API_KEY"
+
+# mongodb
+printenv | grep "MCLI_PRIVATE_API_KEY"
+printenv | grep "MCLI_PUBLIC_API_KEY"
+
+## npm
+printenv | grep "NPM_TOKEN"
+
+## openstack 
+printenv | grep "OS_PASSWORD"
+
+## Percy.io
+printenv | grep "PERCY_TOKEN"
+
+## Sentry
+printenv | grep "SENTRY_AUTH_TOKEN"
+
+## Slack
+printenv | grep "SLACK_TOKEN"
+
+## Square
+printenv | grep "square_access_token"
+printenv | grep "square_oauth_secret"
+
+## Stripe
+printenv | grep "STRIPE_API_KEY"
+printenv | grep "STRIPE_DEVICE_NAME"
+
+## Twilio
+printenv | grep "TWILIO_ACCOUNT_SID"
+printenv | grep "TWILIO_AUTH_TOKEN" 
+
+## Twitter
+printenv | grep "CONSUMER_KEY"
+printenv | grep "CONSUMER_SECRET"
+
+## Vault HashiCorp
+printenv | grep "VAULT_TOKEN"
+printenv | grep "VAULT_CLIENT_KEY"
+
 # == Done == 
 echo "\nDone."
